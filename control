@@ -1,0 +1,8 @@
+Package: com.nsdelta.splashtext
+Name: SplashText
+Version: 1.0
+Architecture: iphoneos-arm
+Depends: mobilesubstrate
+Maintainer: NSDelta <NSDelta@users.noreply.github.com>
+Section: Tweaks
+Description: 开屏显示自定义文字，可点击跳过
