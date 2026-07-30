@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════
 // 可自定义文字内容（修改下面的字符串即可）
 // ═══════════════════════════════════════════════════
-static NSString *CUSTOM_TEXT = @"⚠️ 仅供学习交流\n请于24小时内删除";
+static NSString *CUSTOM_TEXT = @"⚠️ 本IPA为elisif公共服专用\n使用NSDelta的\n二改patcher修改\n仅供学习交流\n严禁商业用途\n24小时内请删除";
 static NSString *SUBTITLE_TEXT = nil;   // nil = 不显示副标题
 static NSTimeInterval DISPLAY_DURATION = 4.0; // 显示秒数
 static CGFloat FONT_SIZE = 20.0;
