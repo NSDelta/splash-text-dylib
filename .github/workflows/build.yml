@@ -1,0 +1,36 @@
+name: Build SplashText dylib
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Theos
+        run: |
+          brew install ldid xz
+          git clone --depth 1 https://github.com/theos/theos.git /opt/theos
+
+      - name: Build
+        run: |
+          export THEOS=/opt/theos
+          make package
+
+      - name: Upload .deb
+        uses: actions/upload-artifact@v4
+        with:
+          name: SplashText-deb
+          path: packages/*.deb
+
+      - name: Upload .dylib
+        uses: actions/upload-artifact@v4
+        with:
+          name: SplashText-dylib
+          path: .theos/obj/debug/SplashText.dylib
