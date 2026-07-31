@@ -7,7 +7,7 @@
 #import <objc/runtime.h>
 
 // ===== 在这里改文字 =====
-static NSString *CUSTOM_TEXT = @"本IPA使用NSDelta的二改脚本\n仅供学习交流\n切勿商业使用\n请于24小时内删除";
+static NSString *CUSTOM_TEXT = @"本IPA使用NSDelta的二改脚本修改\n原脚本由\ndennis96292\n制作\n仅供学习交流\n切勿商业使用\n请于24小时内删除";
 static NSString *SUBTITLE_TEXT = nil;
 static NSTimeInterval DISPLAY_DURATION = 4.0;
 static CGFloat FONT_SIZE = 20.0;
