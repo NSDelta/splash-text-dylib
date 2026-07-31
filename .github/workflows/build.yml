@@ -21,7 +21,18 @@ jobs:
           sudo git clone --recursive https://github.com/theos/theos.git $THEOS
           sudo chown -R $USER $THEOS
 
-      - name: Build package
+      - name: Build (debug, get dylib)
+        run: |
+          export THEOS=/opt/theos
+          make
+
+      - name: Upload dylib
+        uses: actions/upload-artifact@v4
+        with:
+          name: SplashText-dylib
+          path: .theos/obj/debug/SplashText.dylib
+
+      - name: Build (package deb)
         run: |
           export THEOS=/opt/theos
           make package FINALPACKAGE=1
@@ -31,9 +42,3 @@ jobs:
         with:
           name: SplashText-deb
           path: packages/*.deb
-
-      - name: Upload dylib
-        uses: actions/upload-artifact@v4
-        with:
-          name: SplashText-dylib
-          path: .theos/obj/debug/SplashText.dylib
