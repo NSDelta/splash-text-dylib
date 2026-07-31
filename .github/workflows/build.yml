@@ -19,6 +19,7 @@ jobs:
           brew install ldid
           sudo mkdir -p /opt
           sudo git clone --recursive https://github.com/theos/theos.git $THEOS
+          sudo chown -R $USER $THEOS
 
       - name: Build package
         run: |
