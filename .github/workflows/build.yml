@@ -1,8 +1,8 @@
-name: Build SplashText dylib
+name: Build SplashText
 
 on:
   push:
-    branches: [main]
+    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
@@ -15,21 +15,23 @@ jobs:
 
       - name: Setup Theos
         run: |
-          brew install ldid xz
-          git clone --depth 1 https://github.com/theos/theos.git /opt/theos
+          export THEOS=/opt/theos
+          brew install ldid
+          sudo mkdir -p /opt
+          sudo git clone --recursive https://github.com/theos/theos.git $THEOS
 
-      - name: Build
+      - name: Build package
         run: |
           export THEOS=/opt/theos
-          make package
+          make package FINALPACKAGE=1
 
-      - name: Upload .deb
+      - name: Upload deb
         uses: actions/upload-artifact@v4
         with:
           name: SplashText-deb
           path: packages/*.deb
 
-      - name: Upload .dylib
+      - name: Upload dylib
         uses: actions/upload-artifact@v4
         with:
           name: SplashText-dylib
